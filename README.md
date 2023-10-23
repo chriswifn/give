@@ -1,6 +1,7 @@
 # 🌳 Go File Sharing Library
 
 Go Bonzai branch for sharing files privately and publicly.
+**Please do not use this it desperately needs a rewrite**.
 
 ## Installation
 
