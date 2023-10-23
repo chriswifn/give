@@ -3,6 +3,7 @@ package ix
 import (
 	_ "embed"
 	"fmt"
+
 	Z "github.com/rwxrob/bonzai/z"
 	"github.com/rwxrob/help"
 )
@@ -19,7 +20,7 @@ var Cmd = &Z.Cmd{
 	Usage:     `[help|PATH]`,
 	Summary:   `ix requests`,
 	Copyright: `Copyright 2023 Christian Hageloch`,
-	Version:   `v0.1.0`,
+	Version:   `v0.1.1`,
 	License:   `MIT`,
 	Source:    `git@github.com:chriswifn/give.git`,
 	Issues:    `github.com/chriswifn/give/issues`,
@@ -32,7 +33,7 @@ var postCmd = &Z.Cmd{
 	Usage:       `[help|PATH]`,
 	Summary:     `ix post request`,
 	Copyright:   `Copyright 2023 Christian Hageloch`,
-	Version:     `v0.1.0`,
+	Version:     `v0.1.1`,
 	License:     `MIT`,
 	Source:      `git@github.com:chriswifn/give.git`,
 	Issues:      `github.com/chriswifn/give/issues`,
@@ -51,7 +52,7 @@ var getCmd = &Z.Cmd{
 	Usage:       `[help|PATH]`,
 	Summary:     `ix get request`,
 	Copyright:   `Copyright 2023 Christian Hageloch`,
-	Version:     `v0.1.0`,
+	Version:     `v0.1.1`,
 	License:     `MIT`,
 	Source:      `git@github.com:chriswifn/give.git`,
 	Issues:      `github.com/chriswifn/give/issues`,

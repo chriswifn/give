@@ -12,7 +12,7 @@ var Cmd = &Z.Cmd{
 	Summary:   `Collection of protocols for sharing files`,
 	Commands:  []*Z.Cmd{help.Cmd, server.Cmd, ix.Cmd},
 	Copyright: `Copyright 2023 Christian Hageloch`,
-	Version:   `v0.1.0`,
+	Version:   `v0.1.1`,
 	License:   `MIT`,
 	Source:    `git@github.com:chriswifn/give.git`,
 	Issues:    `github.com/chriswifn/give/issues`,

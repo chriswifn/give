@@ -103,3 +103,47 @@ func serveQr() {
 	http.HandleFunc("/", serveHandler)
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
+
+func jsnForm(w http.ResponseWriter, r *http.Request) {
+	r.ParseForm()
+	jsn, _ := json.MarshalIndent(r.Form, "", " ")
+	fmt.Fprintf(w, string(jsn))
+	f, err := os.OpenFile("output.json", os.O_APPEND|os.O_WRONLY|os.O_CREATE, 0644)
+	if err != nil {
+		log.Fatal(err)
+	}
+	if _, err := f.Write(jsn); err != nil {
+		log.Fatal(err)
+	}
+	if err := f.Close(); err != nil {
+		log.Fatal(err)
+	}
+}
+
+func jsnHandler(w http.ResponseWriter, r *http.Request) {
+	if r.Method == "POST" {
+		jsnForm(w, r)
+		return
+	}
+	var err error
+	wd, err := os.Getwd()
+	if err != nil {
+		log.Fatal(err)
+		return
+	}
+	http.ServeFile(w, r, wd+r.URL.Path)
+}
+
+func jsn() {
+	var Url = `http://` + GetLocalIP() + `:8080`
+	fmt.Println(Url)
+	http.HandleFunc("/", jsnHandler)
+	log.Fatal(http.ListenAndServe(":8080", nil))
+}
+
+func jsnQr() {
+	var Url = `http://` + GetLocalIP() + `:8080`
+	RenderString(Url)
+	http.HandleFunc("/", jsnHandler)
+	log.Fatal(http.ListenAndServe(":8080", nil))
+}
